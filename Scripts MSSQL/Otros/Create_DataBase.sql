@@ -160,16 +160,23 @@ CREATE TABLE Canciones(
   Nombre VARCHAR(40) NOT NULL, --#Nombre de la cancion
   Duracion TIME(0) NOT NULL, --#Duracion de la cancion
   N_Pista SMALLINT NOT NULL, --#Numero de pista dentro del album de la cancion 
+<<<<<<< HEAD
   idAlbum INT NOT NULL, --#id del album de la cancion,
   idSentimiento INT NOT NULL,
+=======
+  idAlbum INT NOT NULL, --#id del album de la cancion
+>>>>>>> MySQL
   PRIMARY KEY(idCancion),
   CONSTRAINT FK_Canciones_Albums
     FOREIGN KEY(idAlbum)
     REFERENCES Albums(idAlbum)
+<<<<<<< HEAD
     ON DELETE CASCADE,
   CONSTRAINT FK_Canciones_Sentimientos
     FOREIGN KEY(idSentimiento)
     REFERENCES Sentimientos(idSentimiento)
+=======
+>>>>>>> MySQL
     ON DELETE CASCADE
 );
 
@@ -246,4 +253,26 @@ CREATE TABLE PlaylistsCanciones(
     FOREIGN KEY(idCancion)
     REFERENCES Canciones(idCancion)
     ON DELETE CASCADE
+<<<<<<< HEAD
+=======
+);
+
+
+-- #####################################################
+-- Crear tabla PlaylistsCanciones
+-- #####################################################
+CREATE TABLE PlaylistsCanciones(
+  idPlaylist INT NOT NULL, --id de la playlist
+  idCancion INT NOT NULL, --id de la cancion
+  Fecha DATETIME NOT NULL, --Fecha y hora de la modificacion
+  PRIMARY KEY(idPlaylist, idCancion),
+  CONSTRAINT FK_PlaylistsCanciones_Playlists
+    FOREIGN KEY(idPlaylist)
+    REFERENCES Playlists(idPlaylist)
+    ON DELETE CASCADE,
+  CONSTRAINT FK_PlaylistsCanciones_Canciones
+    FOREIGN KEY(idCancion)
+    REFERENCES Canciones(idCancion)
+    ON DELETE CASCADE
+>>>>>>> MySQL
 );

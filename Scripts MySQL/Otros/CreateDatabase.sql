@@ -161,10 +161,15 @@ CREATE TABLE Canciones(
   Duracion TIME NOT NULL, ##Duracion de la cancion
   N_Pista TINYINT NOT NULL, ##Numero de pista dentro del album de la cancion 
   idAlbum INT NOT NULL, ##id del album de la cancion
+  idSentimiento INT NOT NULL,
   PRIMARY KEY(idCancion),
   CONSTRAINT FK_Canciones_Albums
     FOREIGN KEY(idAlbum)
     REFERENCES Albums(idAlbum)
+    ON DELETE CASCADE,
+  CONSTRAINT FK_Canciones_Sentimientos
+    FOREIGN KEY(idSentimiento)
+    REFERENCES Sentimientos(idSentimiento)
     ON DELETE CASCADE
 );
 
