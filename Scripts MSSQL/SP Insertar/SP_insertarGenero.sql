@@ -6,6 +6,6 @@ CREATE PROCEDURE insertarGenero(
     BEGIN
     SET NOCOUNT ON; 
     INSERT INTO Genero
-    VALUES (0,@nombre,@pais);
+    VALUES (@nombre,@pais);
 END;
 GO

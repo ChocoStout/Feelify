@@ -3,6 +3,6 @@ CREATE PROCEDURE insertarEstados( @estado varchar(8))
     BEGIN
     SET NOCOUNT ON; 
     INSERT INTO Estados
-    VALUES (0,@estado);
+    VALUES (@estado);
 END;
 GO
