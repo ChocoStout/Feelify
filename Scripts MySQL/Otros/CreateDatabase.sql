@@ -259,4 +259,4 @@ CREATE TABLE GenerosSentimientos(
     FOREIGN KEY(idSentimiento)
     REFERENCES Sentimientos(idSentimiento)
     ON DELETE CASCADE
-)
+);
