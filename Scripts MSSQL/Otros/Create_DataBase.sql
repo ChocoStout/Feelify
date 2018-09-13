@@ -242,21 +242,3 @@ CREATE TABLE PlaylistsCanciones(
     REFERENCES Canciones(idCancion)
     ON DELETE CASCADE
 );
-
-
--- #####################################################
--- Crear tabla GenerosSentimientos
--- #####################################################
-CREATE TABLE GenerosSentimientos(
-  idGenero INT NOT NULL, --#id del genero
-  idSentimiento INT NOT NULL, --#id del sentimiento
-  PRIMARY KEY(idGenero,idSentimiento),
-  CONSTRAINT FK_GenerosSentimientos_Genero
-    FOREIGN KEY(idGenero)
-    REFERENCES Generos(idGenero)
-    ON DELETE CASCADE,
-  CONSTRAINT FK_GenerosSentimientos_Sentimientos
-    FOREIGN KEY(idSentimiento)
-    REFERENCES Sentimientos(idSentimiento)
-    ON DELETE CASCADE
-)
