@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +55,92 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actividades.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Albums.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Artistas.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Canciones.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estados.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_HomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_HomeScreen.Designer.cs">
+      <DependentUpon>F_HomeScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F_Login.Designer.cs">
       <DependentUpon>F_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generos.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="loginUsuario_Result.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloFeelify.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloFeelify.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloFeelify.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloFeelify.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloFeelify.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Paises.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Playlists.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlaylistsCanciones.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sentimientos.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposUsuarios.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosActividades.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosSentimientos.cs">
+      <DependentUpon>ModeloFeelify.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="F_HomeScreen.resx">
+      <DependentUpon>F_HomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_Login.resx">
       <DependentUpon>F_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -66,6 +153,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="ModeloFeelify.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloFeelify.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModeloFeelify.edmx.diagram">
+      <DependentUpon>ModeloFeelify.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +173,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModeloFeelify.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModeloFeelify.Context.cs</LastGenOutput>
+      <DependentUpon>ModeloFeelify.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModeloFeelify.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloFeelify.edmx</DependentUpon>
+      <LastGenOutput>ModeloFeelify.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

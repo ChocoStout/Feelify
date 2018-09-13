@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FeelifyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Actividades">
+    <Key>
+      <PropertyRef Name="idActividad" />
+    </Key>
+    <Property Name="idActividad" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="UsuariosActividades" Relationship="Self.FK_UsuariosActividades_Actividades" FromRole="Actividades" ToRole="UsuariosActividades" />
+  </EntityType>
+  <EntityType Name="Albums">
+    <Key>
+      <PropertyRef Name="idAlbum" />
+    </Key>
+    <Property Name="idAlbum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FechaSalida" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="idArtista" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Artistas" Relationship="Self.FK_Albums_Artistas" FromRole="Albums" ToRole="Artistas" />
+    <NavigationProperty Name="Canciones" Relationship="Self.FK_Canciones_Albums" FromRole="Albums" ToRole="Canciones" />
+    <NavigationProperty Name="Generos" Relationship="Self.AlbumsGeneros" FromRole="Albums" ToRole="Generos" />
+  </EntityType>
+  <EntityType Name="Artistas">
+    <Key>
+      <PropertyRef Name="idArtista" />
+    </Key>
+    <Property Name="idArtista" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="idPais" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Albums" Relationship="Self.FK_Albums_Artistas" FromRole="Artistas" ToRole="Albums" />
+    <NavigationProperty Name="Paises" Relationship="Self.FK_Artistas_Paises" FromRole="Artistas" ToRole="Paises" />
+  </EntityType>
+  <EntityType Name="Canciones">
+    <Key>
+      <PropertyRef Name="idCancion" />
+    </Key>
+    <Property Name="idCancion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Duracion" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="N_Pista" Type="Byte" Nullable="false" />
+    <Property Name="idAlbum" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Albums" Relationship="Self.FK_Canciones_Albums" FromRole="Canciones" ToRole="Albums" />
+    <NavigationProperty Name="PlaylistsCanciones" Relationship="Self.FK_PlaylistsCanciones_Canciones" FromRole="Canciones" ToRole="PlaylistsCanciones" />
+  </EntityType>
+  <EntityType Name="Estados">
+    <Key>
+      <PropertyRef Name="idEstado" />
+    </Key>
+    <Property Name="idEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Playlists" Relationship="Self.FK_Playlists_Estados" FromRole="Estados" ToRole="Playlists" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Estados" FromRole="Estados" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Generos">
+    <Key>
+      <PropertyRef Name="idGenero" />
+    </Key>
+    <Property Name="idGenero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idPais" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Paises" Relationship="Self.FK_Generos_Paises" FromRole="Generos" ToRole="Paises" />
+    <NavigationProperty Name="Albums" Relationship="Self.AlbumsGeneros" FromRole="Generos" ToRole="Albums" />
+    <NavigationProperty Name="Sentimientos" Relationship="Self.GenerosSentimientos" FromRole="Generos" ToRole="Sentimientos" />
+  </EntityType>
+  <EntityType Name="Paises">
+    <Key>
+      <PropertyRef Name="idPais" />
+    </Key>
+    <Property Name="idPais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Artistas" Relationship="Self.FK_Artistas_Paises" FromRole="Paises" ToRole="Artistas" />
+    <NavigationProperty Name="Generos" Relationship="Self.FK_Generos_Paises" FromRole="Paises" ToRole="Generos" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Paises" FromRole="Paises" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Playlists">
+    <Key>
+      <PropertyRef Name="idPlaylist" />
+    </Key>
+    <Property Name="idPlaylist" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="idEstado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estados" Relationship="Self.FK_Playlists_Estados" FromRole="Playlists" ToRole="Estados" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Playlists_Usuarios" FromRole="Playlists" ToRole="Usuarios" />
+    <NavigationProperty Name="PlaylistsCanciones" Relationship="Self.FK_PlaylistsCanciones_Playlists" FromRole="Playlists" ToRole="PlaylistsCanciones" />
+  </EntityType>
+  <EntityType Name="Sentimientos">
+    <Key>
+      <PropertyRef Name="idSentimiento" />
+    </Key>
+    <Property Name="idSentimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="UsuariosSentimientos" Relationship="Self.FK_UsuariosSentimientos_Sentimientos" FromRole="Sentimientos" ToRole="UsuariosSentimientos" />
+    <NavigationProperty Name="Generos" Relationship="Self.GenerosSentimientos" FromRole="Sentimientos" ToRole="Generos" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TiposUsuarios">
+    <Key>
+      <PropertyRef Name="idTipoUsuario" />
+    </Key>
+    <Property Name="idTipoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_TiposUsuarios" FromRole="TiposUsuarios" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="A_Paterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="A_Materno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clave" Type="Binary" MaxLength="64" FixedLength="true" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="idPais" Type="Int32" Nullable="false" />
+    <Property Name="idTipoUsuario" Type="Int32" Nullable="false" />
+    <Property Name="idEstado" Type="Int32" Nullable="false" />
+    <Property Name="Imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Estados" Relationship="Self.FK_Usuarios_Estados" FromRole="Usuarios" ToRole="Estados" />
+    <NavigationProperty Name="Paises" Relationship="Self.FK_Usuarios_Paises" FromRole="Usuarios" ToRole="Paises" />
+    <NavigationProperty Name="Playlists" Relationship="Self.FK_Playlists_Usuarios" FromRole="Usuarios" ToRole="Playlists" />
+    <NavigationProperty Name="TiposUsuarios" Relationship="Self.FK_Usuarios_TiposUsuarios" FromRole="Usuarios" ToRole="TiposUsuarios" />
+    <NavigationProperty Name="UsuariosActividades" Relationship="Self.FK_UsuariosActividades_Usuarios" FromRole="Usuarios" ToRole="UsuariosActividades" />
+    <NavigationProperty Name="UsuariosSentimientos" Relationship="Self.FK_UsuariosSentimientos_Usuarios" FromRole="Usuarios" ToRole="UsuariosSentimientos" />
+  </EntityType>
+  <EntityType Name="PlaylistsCanciones">
+    <Key>
+      <PropertyRef Name="idPlaylist" />
+      <PropertyRef Name="idCancion" />
+      <PropertyRef Name="timestamp" />
+    </Key>
+    <Property Name="idPlaylist" Type="Int32" Nullable="false" />
+    <Property Name="idCancion" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Canciones" Relationship="Self.FK_PlaylistsCanciones_Canciones" FromRole="PlaylistsCanciones" ToRole="Canciones" />
+    <NavigationProperty Name="Playlists" Relationship="Self.FK_PlaylistsCanciones_Playlists" FromRole="PlaylistsCanciones" ToRole="Playlists" />
+  </EntityType>
+  <EntityType Name="UsuariosActividades">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+      <PropertyRef Name="idActividad" />
+      <PropertyRef Name="timestamp" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="idActividad" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Actividades" Relationship="Self.FK_UsuariosActividades_Actividades" FromRole="UsuariosActividades" ToRole="Actividades" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_UsuariosActividades_Usuarios" FromRole="UsuariosActividades" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="UsuariosSentimientos">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+      <PropertyRef Name="idSentimiento" />
+      <PropertyRef Name="timestamp" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="idSentimiento" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Sentimientos" Relationship="Self.FK_UsuariosSentimientos_Sentimientos" FromRole="UsuariosSentimientos" ToRole="Sentimientos" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_UsuariosSentimientos_Usuarios" FromRole="UsuariosSentimientos" ToRole="Usuarios" />
+  </EntityType>
+  <Association Name="FK_UsuariosActividades_Actividades">
+    <End Role="Actividades" Type="Self.Actividades" Multiplicity="1" />
+    <End Role="UsuariosActividades" Type="Self.UsuariosActividades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividades">
+        <PropertyRef Name="idActividad" />
+      </Principal>
+      <Dependent Role="UsuariosActividades">
+        <PropertyRef Name="idActividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Albums_Artistas">
+    <End Role="Artistas" Type="Self.Artistas" Multiplicity="1" />
+    <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artistas">
+        <PropertyRef Name="idArtista" />
+      </Principal>
+      <Dependent Role="Albums">
+        <PropertyRef Name="idArtista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Canciones_Albums">
+    <End Role="Albums" Type="Self.Albums" Multiplicity="1" />
+    <End Role="Canciones" Type="Self.Canciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Albums">
+        <PropertyRef Name="idAlbum" />
+      </Principal>
+      <Dependent Role="Canciones">
+        <PropertyRef Name="idAlbum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artistas_Paises">
+    <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+    <End Role="Artistas" Type="Self.Artistas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paises">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Artistas">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistsCanciones_Canciones">
+    <End Role="Canciones" Type="Self.Canciones" Multiplicity="1" />
+    <End Role="PlaylistsCanciones" Type="Self.PlaylistsCanciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Canciones">
+        <PropertyRef Name="idCancion" />
+      </Principal>
+      <Dependent Role="PlaylistsCanciones">
+        <PropertyRef Name="idCancion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Playlists_Estados">
+    <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
+    <End Role="Playlists" Type="Self.Playlists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estados">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="Playlists">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Estados">
+    <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estados">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Generos_Paises">
+    <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+    <End Role="Generos" Type="Self.Generos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paises">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Generos">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Paises">
+    <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paises">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Playlists_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Playlists" Type="Self.Playlists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Playlists">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistsCanciones_Playlists">
+    <End Role="Playlists" Type="Self.Playlists" Multiplicity="1" />
+    <End Role="PlaylistsCanciones" Type="Self.PlaylistsCanciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Playlists">
+        <PropertyRef Name="idPlaylist" />
+      </Principal>
+      <Dependent Role="PlaylistsCanciones">
+        <PropertyRef Name="idPlaylist" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosSentimientos_Sentimientos">
+    <End Role="Sentimientos" Type="Self.Sentimientos" Multiplicity="1" />
+    <End Role="UsuariosSentimientos" Type="Self.UsuariosSentimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sentimientos">
+        <PropertyRef Name="idSentimiento" />
+      </Principal>
+      <Dependent Role="UsuariosSentimientos">
+        <PropertyRef Name="idSentimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_TiposUsuarios">
+    <End Role="TiposUsuarios" Type="Self.TiposUsuarios" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposUsuarios">
+        <PropertyRef Name="idTipoUsuario" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idTipoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosActividades_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="UsuariosActividades" Type="Self.UsuariosActividades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="UsuariosActividades">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosSentimientos_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="UsuariosSentimientos" Type="Self.UsuariosSentimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="UsuariosSentimientos">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AlbumsGeneros">
+    <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+    <End Role="Generos" Type="Self.Generos" Multiplicity="*" />
+  </Association>
+  <Association Name="GenerosSentimientos">
+    <End Role="Generos" Type="Self.Generos" Multiplicity="*" />
+    <End Role="Sentimientos" Type="Self.Sentimientos" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="FeelifyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Actividades" EntityType="Self.Actividades" />
+    <EntitySet Name="Albums" EntityType="Self.Albums" />
+    <EntitySet Name="Artistas" EntityType="Self.Artistas" />
+    <EntitySet Name="Canciones" EntityType="Self.Canciones" />
+    <EntitySet Name="Estados" EntityType="Self.Estados" />
+    <EntitySet Name="Generos" EntityType="Self.Generos" />
+    <EntitySet Name="Paises" EntityType="Self.Paises" />
+    <EntitySet Name="Playlists" EntityType="Self.Playlists" />
+    <EntitySet Name="Sentimientos" EntityType="Self.Sentimientos" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TiposUsuarios" EntityType="Self.TiposUsuarios" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <EntitySet Name="PlaylistsCanciones" EntityType="Self.PlaylistsCanciones" />
+    <EntitySet Name="UsuariosActividades" EntityType="Self.UsuariosActividades" />
+    <EntitySet Name="UsuariosSentimientos" EntityType="Self.UsuariosSentimientos" />
+    <AssociationSet Name="FK_UsuariosActividades_Actividades" Association="Self.FK_UsuariosActividades_Actividades">
+      <End Role="Actividades" EntitySet="Actividades" />
+      <End Role="UsuariosActividades" EntitySet="UsuariosActividades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Albums_Artistas" Association="Self.FK_Albums_Artistas">
+      <End Role="Artistas" EntitySet="Artistas" />
+      <End Role="Albums" EntitySet="Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Canciones_Albums" Association="Self.FK_Canciones_Albums">
+      <End Role="Albums" EntitySet="Albums" />
+      <End Role="Canciones" EntitySet="Canciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artistas_Paises" Association="Self.FK_Artistas_Paises">
+      <End Role="Paises" EntitySet="Paises" />
+      <End Role="Artistas" EntitySet="Artistas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistsCanciones_Canciones" Association="Self.FK_PlaylistsCanciones_Canciones">
+      <End Role="Canciones" EntitySet="Canciones" />
+      <End Role="PlaylistsCanciones" EntitySet="PlaylistsCanciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Playlists_Estados" Association="Self.FK_Playlists_Estados">
+      <End Role="Estados" EntitySet="Estados" />
+      <End Role="Playlists" EntitySet="Playlists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Estados" Association="Self.FK_Usuarios_Estados">
+      <End Role="Estados" EntitySet="Estados" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Generos_Paises" Association="Self.FK_Generos_Paises">
+      <End Role="Paises" EntitySet="Paises" />
+      <End Role="Generos" EntitySet="Generos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Paises" Association="Self.FK_Usuarios_Paises">
+      <End Role="Paises" EntitySet="Paises" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Playlists_Usuarios" Association="Self.FK_Playlists_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Playlists" EntitySet="Playlists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistsCanciones_Playlists" Association="Self.FK_PlaylistsCanciones_Playlists">
+      <End Role="Playlists" EntitySet="Playlists" />
+      <End Role="PlaylistsCanciones" EntitySet="PlaylistsCanciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosSentimientos_Sentimientos" Association="Self.FK_UsuariosSentimientos_Sentimientos">
+      <End Role="Sentimientos" EntitySet="Sentimientos" />
+      <End Role="UsuariosSentimientos" EntitySet="UsuariosSentimientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_TiposUsuarios" Association="Self.FK_Usuarios_TiposUsuarios">
+      <End Role="TiposUsuarios" EntitySet="TiposUsuarios" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosActividades_Usuarios" Association="Self.FK_UsuariosActividades_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="UsuariosActividades" EntitySet="UsuariosActividades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosSentimientos_Usuarios" Association="Self.FK_UsuariosSentimientos_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="UsuariosSentimientos" EntitySet="UsuariosSentimientos" />
+    </AssociationSet>
+    <AssociationSet Name="AlbumsGeneros" Association="Self.AlbumsGeneros">
+      <End Role="Albums" EntitySet="Albums" />
+      <End Role="Generos" EntitySet="Generos" />
+    </AssociationSet>
+    <AssociationSet Name="GenerosSentimientos" Association="Self.GenerosSentimientos">
+      <End Role="Generos" EntitySet="Generos" />
+      <End Role="Sentimientos" EntitySet="Sentimientos" />
+    </AssociationSet>
+    <FunctionImport Name="insertarAlbumGenero">
+      <Parameter Name="album" Mode="In" Type="Int32" />
+      <Parameter Name="genero" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertarArtista">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="pais" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertarCancion">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="duracion" Mode="In" Type="Time" />
+      <Parameter Name="numero" Mode="In" Type="Int32" />
+      <Parameter Name="album" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertarDisco">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="ruta" Mode="In" Type="String" />
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="artista" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertarEstados">
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insertarGenero">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="pais" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertarGenerosSentimientos">
+      <Parameter Name="genero" Mode="In" Type="Int32" />
+      <Parameter Name="sentimiento" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertarPais">
+      <Parameter Name="nombrePais" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insertarPlaylist">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="ruta" Mode="In" Type="String" />
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="usuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertarPlaylistCanciones">
+      <Parameter Name="playlist" Mode="In" Type="Int32" />
+      <Parameter Name="cancion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertarSentimiento">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insertarTipoUsuario">
+      <Parameter Name="tipoUsuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insertarUsuario">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="paterno" Mode="In" Type="String" />
+      <Parameter Name="materno" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="pais" Mode="In" Type="Int32" />
+      <Parameter Name="tipo" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="Int32" />
+      <Parameter Name="ruta" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insertarUsuarioActividad">
+      <Parameter Name="usuario" Mode="In" Type="Int32" />
+      <Parameter Name="actividad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insertarUsuarioSentimiento">
+      <Parameter Name="usuario" Mode="In" Type="Int32" />
+      <Parameter Name="sentimiento" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="loginUsuario" ReturnType="Collection(FeelifyModel.loginUsuario_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(FeelifyModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(FeelifyModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="loginUsuario_Result">
+    <Property Type="Int32" Name="idUsuario" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="A_Paterno" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="A_Materno" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Correo" Nullable="false" MaxLength="40" />
+    <Property Type="Binary" Name="Clave" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="30" />
+    <Property Type="DateTime" Name="FechaRegistro" Nullable="false" />
+    <Property Type="Int32" Name="idPais" Nullable="false" />
+    <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
+    <Property Type="Int32" Name="idEstado" Nullable="false" />
+    <Property Type="String" Name="Imagen" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

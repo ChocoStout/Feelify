@@ -1,0 +1,16 @@
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\bin\Debug\cPanel.exe.config
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\bin\Debug\cPanel.exe
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\bin\Debug\cPanel.pdb
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\bin\Debug\EntityFramework.dll
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\bin\Debug\EntityFramework.xml
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.csprojAssemblyReference.cache
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.F_Login.resources
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.Properties.Resources.resources
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.csproj.GenerateResource.cache
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.csproj.CoreCompileInputs.cache
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.csproj.CopyComplete
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.exe
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.pdb
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.F_HomeScreen.resources

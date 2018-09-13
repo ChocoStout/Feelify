@@ -16,5 +16,48 @@ namespace cPanel
         {
             InitializeComponent();
         }
+
+        private void btn_Login_Click(object sender, EventArgs e)
+        {
+            validarLogin(txt_Username.Text, txt_Password.Text);
+            
+        }
+
+        void validarLogin(string username, string password)
+        {
+            try
+            {
+                using (FeelifyEntities conn = new FeelifyEntities())
+                {
+                    var resultado = conn.loginUsuario(username, password);
+                    if (resultado.ToArray<loginUsuario_Result>().Count() == 1)
+                        loginScreen(true);
+                    else
+                        loginScreen(false);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un error: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        void loginScreen(bool resultado)
+        {
+            if (resultado)
+            {
+                this.Hide();
+                var x = new F_HomeScreen();
+                x.Closed += (s, args) => this.Close();
+                x.Show();
+            }
+            else
+            {
+                txt_Password.Clear();
+                txt_Username.Clear();
+                MessageBox.Show("Error en las creedenciales","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
     }
 }

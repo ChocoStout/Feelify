@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FeelifyModelStoreContainer" CdmEntityContainer="FeelifyEntities">
+    <EntitySetMapping Name="Actividades">
+      <EntityTypeMapping TypeName="FeelifyModel.Actividades">
+        <MappingFragment StoreEntitySet="Actividades">
+          <ScalarProperty Name="idActividad" ColumnName="idActividad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="FeelifyModel.Albums">
+        <MappingFragment StoreEntitySet="Albums">
+          <ScalarProperty Name="idAlbum" ColumnName="idAlbum" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+          <ScalarProperty Name="idArtista" ColumnName="idArtista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artistas">
+      <EntityTypeMapping TypeName="FeelifyModel.Artistas">
+        <MappingFragment StoreEntitySet="Artistas">
+          <ScalarProperty Name="idArtista" ColumnName="idArtista" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idPais" ColumnName="idPais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Canciones">
+      <EntityTypeMapping TypeName="FeelifyModel.Canciones">
+        <MappingFragment StoreEntitySet="Canciones">
+          <ScalarProperty Name="idCancion" ColumnName="idCancion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="N_Pista" ColumnName="N_Pista" />
+          <ScalarProperty Name="idAlbum" ColumnName="idAlbum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estados">
+      <EntityTypeMapping TypeName="FeelifyModel.Estados">
+        <MappingFragment StoreEntitySet="Estados">
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Generos">
+      <EntityTypeMapping TypeName="FeelifyModel.Generos">
+        <MappingFragment StoreEntitySet="Generos">
+          <ScalarProperty Name="idGenero" ColumnName="idGenero" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idPais" ColumnName="idPais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paises">
+      <EntityTypeMapping TypeName="FeelifyModel.Paises">
+        <MappingFragment StoreEntitySet="Paises">
+          <ScalarProperty Name="idPais" ColumnName="idPais" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Playlists">
+      <EntityTypeMapping TypeName="FeelifyModel.Playlists">
+        <MappingFragment StoreEntitySet="Playlists">
+          <ScalarProperty Name="idPlaylist" ColumnName="idPlaylist" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sentimientos">
+      <EntityTypeMapping TypeName="FeelifyModel.Sentimientos">
+        <MappingFragment StoreEntitySet="Sentimientos">
+          <ScalarProperty Name="idSentimiento" ColumnName="idSentimiento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="FeelifyModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposUsuarios">
+      <EntityTypeMapping TypeName="FeelifyModel.TiposUsuarios">
+        <MappingFragment StoreEntitySet="TiposUsuarios">
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="FeelifyModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="A_Paterno" ColumnName="A_Paterno" />
+          <ScalarProperty Name="A_Materno" ColumnName="A_Materno" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="idPais" ColumnName="idPais" />
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlaylistsCanciones">
+      <EntityTypeMapping TypeName="FeelifyModel.PlaylistsCanciones">
+        <MappingFragment StoreEntitySet="PlaylistsCanciones">
+          <ScalarProperty Name="idPlaylist" ColumnName="idPlaylist" />
+          <ScalarProperty Name="idCancion" ColumnName="idCancion" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuariosActividades">
+      <EntityTypeMapping TypeName="FeelifyModel.UsuariosActividades">
+        <MappingFragment StoreEntitySet="UsuariosActividades">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idActividad" ColumnName="idActividad" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuariosSentimientos">
+      <EntityTypeMapping TypeName="FeelifyModel.UsuariosSentimientos">
+        <MappingFragment StoreEntitySet="UsuariosSentimientos">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idSentimiento" ColumnName="idSentimiento" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AlbumsGeneros" TypeName="FeelifyModel.AlbumsGeneros" StoreEntitySet="AlbumsGeneros">
+      <EndProperty Name="Albums">
+        <ScalarProperty Name="idAlbum" ColumnName="idAlbum" />
+      </EndProperty>
+      <EndProperty Name="Generos">
+        <ScalarProperty Name="idGenero" ColumnName="idGenero" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GenerosSentimientos" TypeName="FeelifyModel.GenerosSentimientos" StoreEntitySet="GenerosSentimientos">
+      <EndProperty Name="Generos">
+        <ScalarProperty Name="idGenero" ColumnName="idGenero" />
+      </EndProperty>
+      <EndProperty Name="Sentimientos">
+        <ScalarProperty Name="idSentimiento" ColumnName="idSentimiento" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="insertarAlbumGenero" FunctionName="FeelifyModel.Store.insertarAlbumGenero" />
+    <FunctionImportMapping FunctionImportName="insertarArtista" FunctionName="FeelifyModel.Store.insertarArtista" />
+    <FunctionImportMapping FunctionImportName="insertarCancion" FunctionName="FeelifyModel.Store.insertarCancion" />
+    <FunctionImportMapping FunctionImportName="insertarDisco" FunctionName="FeelifyModel.Store.insertarDisco" />
+    <FunctionImportMapping FunctionImportName="insertarEstados" FunctionName="FeelifyModel.Store.insertarEstados" />
+    <FunctionImportMapping FunctionImportName="insertarGenero" FunctionName="FeelifyModel.Store.insertarGenero" />
+    <FunctionImportMapping FunctionImportName="insertarGenerosSentimientos" FunctionName="FeelifyModel.Store.insertarGenerosSentimientos" />
+    <FunctionImportMapping FunctionImportName="insertarPais" FunctionName="FeelifyModel.Store.insertarPais" />
+    <FunctionImportMapping FunctionImportName="insertarPlaylist" FunctionName="FeelifyModel.Store.insertarPlaylist" />
+    <FunctionImportMapping FunctionImportName="insertarPlaylistCanciones" FunctionName="FeelifyModel.Store.insertarPlaylistCanciones" />
+    <FunctionImportMapping FunctionImportName="insertarSentimiento" FunctionName="FeelifyModel.Store.insertarSentimiento" />
+    <FunctionImportMapping FunctionImportName="insertarTipoUsuario" FunctionName="FeelifyModel.Store.insertarTipoUsuario" />
+    <FunctionImportMapping FunctionImportName="insertarUsuario" FunctionName="FeelifyModel.Store.insertarUsuario" />
+    <FunctionImportMapping FunctionImportName="insertarUsuarioActividad" FunctionName="FeelifyModel.Store.insertarUsuarioActividad" />
+    <FunctionImportMapping FunctionImportName="insertarUsuarioSentimiento" FunctionName="FeelifyModel.Store.insertarUsuarioSentimiento" />
+    <FunctionImportMapping FunctionImportName="loginUsuario" FunctionName="FeelifyModel.Store.loginUsuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FeelifyModel.loginUsuario_Result">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="A_Paterno" ColumnName="A_Paterno" />
+          <ScalarProperty Name="A_Materno" ColumnName="A_Materno" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="idPais" ColumnName="idPais" />
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="FeelifyModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="FeelifyModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="FeelifyModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="FeelifyModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FeelifyModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="FeelifyModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FeelifyModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="FeelifyModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="FeelifyModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

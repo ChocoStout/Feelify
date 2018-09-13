@@ -1,0 +1,626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FeelifyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Actividades">
+    <Key>
+      <PropertyRef Name="idActividad" />
+    </Key>
+    <Property Name="idActividad" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Albums">
+    <Key>
+      <PropertyRef Name="idAlbum" />
+    </Key>
+    <Property Name="idAlbum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="Imagen" Type="varchar(max)" />
+    <Property Name="FechaSalida" Type="date" Nullable="false" />
+    <Property Name="idArtista" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Feelify.dbo.AlbumsGeneros' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="AlbumsGeneros">
+    <Key>
+      <PropertyRef Name="idAlbum" />
+      <PropertyRef Name="idGenero" />
+    </Key>
+    <Property Name="idAlbum" Type="int" Nullable="false" />
+    <Property Name="idGenero" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Artistas">
+    <Key>
+      <PropertyRef Name="idArtista" />
+    </Key>
+    <Property Name="idArtista" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="idPais" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Canciones">
+    <Key>
+      <PropertyRef Name="idCancion" />
+    </Key>
+    <Property Name="idCancion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Duracion" Type="time" Precision="7" Nullable="false" />
+    <Property Name="N_Pista" Type="tinyint" Nullable="false" />
+    <Property Name="idAlbum" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estados">
+    <Key>
+      <PropertyRef Name="idEstado" />
+    </Key>
+    <Property Name="idEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Generos">
+    <Key>
+      <PropertyRef Name="idGenero" />
+    </Key>
+    <Property Name="idGenero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="idPais" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Feelify.dbo.GenerosSentimientos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="GenerosSentimientos">
+    <Key>
+      <PropertyRef Name="idGenero" />
+      <PropertyRef Name="idSentimiento" />
+    </Key>
+    <Property Name="idGenero" Type="int" Nullable="false" />
+    <Property Name="idSentimiento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Paises">
+    <Key>
+      <PropertyRef Name="idPais" />
+    </Key>
+    <Property Name="idPais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="35" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Playlists">
+    <Key>
+      <PropertyRef Name="idPlaylist" />
+    </Key>
+    <Property Name="idPlaylist" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Imagen" Type="nvarchar(max)" />
+    <Property Name="FechaCreacion" Type="date" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="idEstado" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Feelify.dbo.PlaylistsCanciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="PlaylistsCanciones">
+    <Key>
+      <PropertyRef Name="idPlaylist" />
+      <PropertyRef Name="idCancion" />
+      <PropertyRef Name="timestamp" />
+    </Key>
+    <Property Name="idPlaylist" Type="int" Nullable="false" />
+    <Property Name="idCancion" Type="int" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sentimientos">
+    <Key>
+      <PropertyRef Name="idSentimiento" />
+    </Key>
+    <Property Name="idSentimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TiposUsuarios">
+    <Key>
+      <PropertyRef Name="idTipoUsuario" />
+    </Key>
+    <Property Name="idTipoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="A_Paterno" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="A_Materno" Type="varchar" MaxLength="20" />
+    <Property Name="Correo" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Clave" Type="binary" MaxLength="64" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaRegistro" Type="date" Nullable="false" />
+    <Property Name="idPais" Type="int" Nullable="false" />
+    <Property Name="idTipoUsuario" Type="int" Nullable="false" />
+    <Property Name="idEstado" Type="int" Nullable="false" />
+    <Property Name="Imagen" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Feelify.dbo.UsuariosActividades' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="UsuariosActividades">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+      <PropertyRef Name="idActividad" />
+      <PropertyRef Name="timestamp" />
+    </Key>
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="idActividad" Type="int" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Feelify.dbo.UsuariosSentimientos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="UsuariosSentimientos">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+      <PropertyRef Name="idSentimiento" />
+      <PropertyRef Name="timestamp" />
+    </Key>
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="idSentimiento" Type="int" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AlbumGeneros_Albums">
+    <End Role="Albums" Type="Self.Albums" Multiplicity="1" />
+    <End Role="AlbumsGeneros" Type="Self.AlbumsGeneros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Albums">
+        <PropertyRef Name="idAlbum" />
+      </Principal>
+      <Dependent Role="AlbumsGeneros">
+        <PropertyRef Name="idAlbum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlbumGeneros_Generos">
+    <End Role="Generos" Type="Self.Generos" Multiplicity="1" />
+    <End Role="AlbumsGeneros" Type="Self.AlbumsGeneros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Generos">
+        <PropertyRef Name="idGenero" />
+      </Principal>
+      <Dependent Role="AlbumsGeneros">
+        <PropertyRef Name="idGenero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Albums_Artistas">
+    <End Role="Artistas" Type="Self.Artistas" Multiplicity="1" />
+    <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artistas">
+        <PropertyRef Name="idArtista" />
+      </Principal>
+      <Dependent Role="Albums">
+        <PropertyRef Name="idArtista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artistas_Paises">
+    <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+    <End Role="Artistas" Type="Self.Artistas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paises">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Artistas">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Canciones_Albums">
+    <End Role="Albums" Type="Self.Albums" Multiplicity="1" />
+    <End Role="Canciones" Type="Self.Canciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Albums">
+        <PropertyRef Name="idAlbum" />
+      </Principal>
+      <Dependent Role="Canciones">
+        <PropertyRef Name="idAlbum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Generos_Paises">
+    <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+    <End Role="Generos" Type="Self.Generos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paises">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Generos">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GenerosSentimientos_Generos">
+    <End Role="Generos" Type="Self.Generos" Multiplicity="1" />
+    <End Role="GenerosSentimientos" Type="Self.GenerosSentimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Generos">
+        <PropertyRef Name="idGenero" />
+      </Principal>
+      <Dependent Role="GenerosSentimientos">
+        <PropertyRef Name="idGenero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GenerosSentimientos_Sentimientos">
+    <End Role="Sentimientos" Type="Self.Sentimientos" Multiplicity="1" />
+    <End Role="GenerosSentimientos" Type="Self.GenerosSentimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sentimientos">
+        <PropertyRef Name="idSentimiento" />
+      </Principal>
+      <Dependent Role="GenerosSentimientos">
+        <PropertyRef Name="idSentimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Playlists_Estados">
+    <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
+    <End Role="Playlists" Type="Self.Playlists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estados">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="Playlists">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Playlists_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Playlists" Type="Self.Playlists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Playlists">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistsCanciones_Canciones">
+    <End Role="Canciones" Type="Self.Canciones" Multiplicity="1" />
+    <End Role="PlaylistsCanciones" Type="Self.PlaylistsCanciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Canciones">
+        <PropertyRef Name="idCancion" />
+      </Principal>
+      <Dependent Role="PlaylistsCanciones">
+        <PropertyRef Name="idCancion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistsCanciones_Playlists">
+    <End Role="Playlists" Type="Self.Playlists" Multiplicity="1" />
+    <End Role="PlaylistsCanciones" Type="Self.PlaylistsCanciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Playlists">
+        <PropertyRef Name="idPlaylist" />
+      </Principal>
+      <Dependent Role="PlaylistsCanciones">
+        <PropertyRef Name="idPlaylist" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Estados">
+    <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estados">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Paises">
+    <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paises">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_TiposUsuarios">
+    <End Role="TiposUsuarios" Type="Self.TiposUsuarios" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposUsuarios">
+        <PropertyRef Name="idTipoUsuario" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idTipoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosActividades_Actividades">
+    <End Role="Actividades" Type="Self.Actividades" Multiplicity="1" />
+    <End Role="UsuariosActividades" Type="Self.UsuariosActividades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividades">
+        <PropertyRef Name="idActividad" />
+      </Principal>
+      <Dependent Role="UsuariosActividades">
+        <PropertyRef Name="idActividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosActividades_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="UsuariosActividades" Type="Self.UsuariosActividades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="UsuariosActividades">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosSentimientos_Sentimientos">
+    <End Role="Sentimientos" Type="Self.Sentimientos" Multiplicity="1" />
+    <End Role="UsuariosSentimientos" Type="Self.UsuariosSentimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sentimientos">
+        <PropertyRef Name="idSentimiento" />
+      </Principal>
+      <Dependent Role="UsuariosSentimientos">
+        <PropertyRef Name="idSentimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosSentimientos_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="UsuariosSentimientos" Type="Self.UsuariosSentimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="UsuariosSentimientos">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="insertarAlbumGenero" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="album" Type="int" Mode="In" />
+    <Parameter Name="genero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertarArtista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="pais" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertarCancion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="duracion" Type="time" Mode="In" />
+    <Parameter Name="numero" Type="int" Mode="In" />
+    <Parameter Name="album" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertarDisco" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="ruta" Type="varchar(max)" Mode="In" />
+    <Parameter Name="fecha" Type="date" Mode="In" />
+    <Parameter Name="artista" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertarEstados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="estado" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="insertarGenero" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="pais" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertarGenerosSentimientos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="genero" Type="int" Mode="In" />
+    <Parameter Name="sentimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertarPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombrePais" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="insertarPlaylist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="ruta" Type="varchar(max)" Mode="In" />
+    <Parameter Name="fecha" Type="date" Mode="In" />
+    <Parameter Name="usuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertarPlaylistCanciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="playlist" Type="int" Mode="In" />
+    <Parameter Name="cancion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertarSentimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="insertarTipoUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tipoUsuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="insertarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="paterno" Type="varchar" Mode="In" />
+    <Parameter Name="materno" Type="varchar" Mode="In" />
+    <Parameter Name="correo" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="pais" Type="int" Mode="In" />
+    <Parameter Name="tipo" Type="int" Mode="In" />
+    <Parameter Name="estado" Type="int" Mode="In" />
+    <Parameter Name="ruta" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="insertarUsuarioActividad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usuario" Type="int" Mode="In" />
+    <Parameter Name="actividad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insertarUsuarioSentimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usuario" Type="int" Mode="In" />
+    <Parameter Name="sentimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="loginUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="FeelifyModelStoreContainer">
+    <EntitySet Name="Actividades" EntityType="Self.Actividades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Albums" EntityType="Self.Albums" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Artistas" EntityType="Self.Artistas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Canciones" EntityType="Self.Canciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Generos" EntityType="Self.Generos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Playlists" EntityType="Self.Playlists" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sentimientos" EntityType="Self.Sentimientos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TiposUsuarios" EntityType="Self.TiposUsuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlbumsGeneros" EntityType="Self.AlbumsGeneros" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AlbumsGeneros].[idAlbum] AS [idAlbum], 
+    [AlbumsGeneros].[idGenero] AS [idGenero]
+    FROM [dbo].[AlbumsGeneros] AS [AlbumsGeneros]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="GenerosSentimientos" EntityType="Self.GenerosSentimientos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [GenerosSentimientos].[idGenero] AS [idGenero], 
+    [GenerosSentimientos].[idSentimiento] AS [idSentimiento]
+    FROM [dbo].[GenerosSentimientos] AS [GenerosSentimientos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PlaylistsCanciones" EntityType="Self.PlaylistsCanciones" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PlaylistsCanciones].[idPlaylist] AS [idPlaylist], 
+    [PlaylistsCanciones].[idCancion] AS [idCancion], 
+    [PlaylistsCanciones].[timestamp] AS [timestamp]
+    FROM [dbo].[PlaylistsCanciones] AS [PlaylistsCanciones]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UsuariosActividades" EntityType="Self.UsuariosActividades" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UsuariosActividades].[idUsuario] AS [idUsuario], 
+    [UsuariosActividades].[idActividad] AS [idActividad], 
+    [UsuariosActividades].[timestamp] AS [timestamp]
+    FROM [dbo].[UsuariosActividades] AS [UsuariosActividades]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UsuariosSentimientos" EntityType="Self.UsuariosSentimientos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UsuariosSentimientos].[idUsuario] AS [idUsuario], 
+    [UsuariosSentimientos].[idSentimiento] AS [idSentimiento], 
+    [UsuariosSentimientos].[timestamp] AS [timestamp]
+    FROM [dbo].[UsuariosSentimientos] AS [UsuariosSentimientos]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_AlbumGeneros_Albums" Association="Self.FK_AlbumGeneros_Albums">
+      <End Role="Albums" EntitySet="Albums" />
+      <End Role="AlbumsGeneros" EntitySet="AlbumsGeneros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlbumGeneros_Generos" Association="Self.FK_AlbumGeneros_Generos">
+      <End Role="Generos" EntitySet="Generos" />
+      <End Role="AlbumsGeneros" EntitySet="AlbumsGeneros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Albums_Artistas" Association="Self.FK_Albums_Artistas">
+      <End Role="Artistas" EntitySet="Artistas" />
+      <End Role="Albums" EntitySet="Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artistas_Paises" Association="Self.FK_Artistas_Paises">
+      <End Role="Paises" EntitySet="Paises" />
+      <End Role="Artistas" EntitySet="Artistas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Canciones_Albums" Association="Self.FK_Canciones_Albums">
+      <End Role="Albums" EntitySet="Albums" />
+      <End Role="Canciones" EntitySet="Canciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Generos_Paises" Association="Self.FK_Generos_Paises">
+      <End Role="Paises" EntitySet="Paises" />
+      <End Role="Generos" EntitySet="Generos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GenerosSentimientos_Generos" Association="Self.FK_GenerosSentimientos_Generos">
+      <End Role="Generos" EntitySet="Generos" />
+      <End Role="GenerosSentimientos" EntitySet="GenerosSentimientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GenerosSentimientos_Sentimientos" Association="Self.FK_GenerosSentimientos_Sentimientos">
+      <End Role="Sentimientos" EntitySet="Sentimientos" />
+      <End Role="GenerosSentimientos" EntitySet="GenerosSentimientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Playlists_Estados" Association="Self.FK_Playlists_Estados">
+      <End Role="Estados" EntitySet="Estados" />
+      <End Role="Playlists" EntitySet="Playlists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Playlists_Usuarios" Association="Self.FK_Playlists_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Playlists" EntitySet="Playlists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistsCanciones_Canciones" Association="Self.FK_PlaylistsCanciones_Canciones">
+      <End Role="Canciones" EntitySet="Canciones" />
+      <End Role="PlaylistsCanciones" EntitySet="PlaylistsCanciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistsCanciones_Playlists" Association="Self.FK_PlaylistsCanciones_Playlists">
+      <End Role="Playlists" EntitySet="Playlists" />
+      <End Role="PlaylistsCanciones" EntitySet="PlaylistsCanciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Estados" Association="Self.FK_Usuarios_Estados">
+      <End Role="Estados" EntitySet="Estados" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Paises" Association="Self.FK_Usuarios_Paises">
+      <End Role="Paises" EntitySet="Paises" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_TiposUsuarios" Association="Self.FK_Usuarios_TiposUsuarios">
+      <End Role="TiposUsuarios" EntitySet="TiposUsuarios" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosActividades_Actividades" Association="Self.FK_UsuariosActividades_Actividades">
+      <End Role="Actividades" EntitySet="Actividades" />
+      <End Role="UsuariosActividades" EntitySet="UsuariosActividades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosActividades_Usuarios" Association="Self.FK_UsuariosActividades_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="UsuariosActividades" EntitySet="UsuariosActividades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosSentimientos_Sentimientos" Association="Self.FK_UsuariosSentimientos_Sentimientos">
+      <End Role="Sentimientos" EntitySet="Sentimientos" />
+      <End Role="UsuariosSentimientos" EntitySet="UsuariosSentimientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosSentimientos_Usuarios" Association="Self.FK_UsuariosSentimientos_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="UsuariosSentimientos" EntitySet="UsuariosSentimientos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
