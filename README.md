@@ -9,13 +9,19 @@ Se realizara de manera incremental, primero como un proyecto en formas en C#, im
 Diario de desarrollo
 
 Dia 1 --10/09/2018[
-    Creacion de la estructura de las tablas y algunos procedimientos almacenados en SQL Server
+    Creacion de la estructura de las tablas y algunos procedimientos almacenados en SQL Server.
     Pruebas de conceptos en C# usando Windows Forms
 ]
 
 Dia 2 --11/09/2018[
-    Se mudo el proyecto a MySQL
-    Se creo repositorio local
-    Se cambio la estructura de las tablas
-    Se crearon varios procedimientos almacenados para insertar datos
+    Se mudo el proyecto a MySQL.
+    Se creo repositorio local.
+    Se cambio la estructura de las tablas.
+    Se crearon varios procedimientos almacenados para insertar datos.
+]
+
+Dia 3 --12/09/2018[
+    Se reacomodaron las carpetas.
+    Se reorganizo el modelo ER.
+    Se incorporaron scripts de MSSQL para mejor funcionalidad con Entity 6.
 ]
