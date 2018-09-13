@@ -5,6 +5,6 @@ CREATE PROCEDURE loginUsuario(
     AS
     BEGIN
     SET NOCOUNT ON; 
-    SELECT * FROM Usuarios WHERE @username = @username AND @password=AES_ENCRYPT(@password,'Root.32643520');
+    SELECT * FROM Usuarios WHERE @username = @username AND Clave = HASHBYTES('SHA2_512',@password);
 END;
 GO

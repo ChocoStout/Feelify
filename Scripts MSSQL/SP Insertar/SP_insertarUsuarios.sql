@@ -18,7 +18,7 @@ CREATE PROCEDURE insertarUsuario(
     @paterno,
     @materno,
     @correo,
-    AES_ENCRYPT(@password,'Root.32643520'),
+    HASHBYTES('SHA2_512',@password),
     @username,
     GETDATE(),
     @pais,
