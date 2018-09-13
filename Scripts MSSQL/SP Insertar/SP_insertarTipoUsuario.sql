@@ -3,6 +3,6 @@ CREATE PROCEDURE insertarTipoUsuario( @tipoUsuario varchar(11))
     BEGIN
     SET NOCOUNT ON; 
     INSERT INTO TiposUsuario
-    VALUES (0,@tipoUsuario);
+    VALUES (@tipoUsuario);
 END;
 GO

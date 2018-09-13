@@ -3,6 +3,6 @@ CREATE PROCEDURE insertarActividad( @actividad varchar(20))
     BEGIN
     SET NOCOUNT ON; 
     INSERT INTO Actividades
-    VALUES (0,nombre);
+    VALUES (0,@actividad);
 END;
 GO

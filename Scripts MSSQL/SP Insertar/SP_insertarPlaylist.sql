@@ -9,6 +9,6 @@ CREATE PROCEDURE insertarPlaylist(
     BEGIN
     SET NOCOUNT ON; 
     INSERT INTO Playlists
-    VALUES (0,@nombre,@descripcion,@ruta,@fecha,@usuario,1);
+    VALUES (@nombre,@descripcion,@ruta,@fecha,@usuario,1);
 END;
 GO

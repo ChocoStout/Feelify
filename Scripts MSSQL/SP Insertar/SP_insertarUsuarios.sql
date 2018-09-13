@@ -13,7 +13,7 @@ CREATE PROCEDURE insertarUsuario(
     BEGIN
     SET NOCOUNT ON; 
     INSERT INTO Usuarios
-    VALUES (0,
+    VALUES (
     @nombre,
     @paterno,
     @materno,

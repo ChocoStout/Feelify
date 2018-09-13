@@ -5,6 +5,6 @@ CREATE PROCEDURE insertarSentimiento(
     BEGIN
     SET NOCOUNT ON; 
     INSERT INTO Sentimientos
-    VALUES (0,@nombre);
+    VALUES (@nombre);
 END;
 GO

@@ -8,6 +8,6 @@ CREATE PROCEDURE insertarCancion(
     BEGIN
     SET NOCOUNT ON; 
     INSERT INTO Canciones
-    VALUES (0,@nombre,@duracion,@numero,@album);
+    VALUES (@nombre,@duracion,@numero,@album);
 END;
 GO

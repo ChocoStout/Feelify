@@ -3,6 +3,6 @@ CREATE PROCEDURE insertarPais( @nombrePais varchar(35))
     BEGIN
     SET NOCOUNT ON; 
     INSERT INTO Paises
-    VALUES (0,@nombrePais);
+    VALUES (@nombrePais);
 END;
 GO
