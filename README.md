@@ -25,3 +25,9 @@ Dia 3 --12/09/2018[
     Se reorganizo el modelo ER.
     Se incorporaron scripts de MSSQL para mejor funcionalidad con Entity 6.
 ]
+
+Dia 4 --13/09/2018[
+   Actualizacion del login.
+   Actualizacion de la forma de inicio.
+   Se agrego la forma ABC de la tabla tipos de usuarios.
+]
