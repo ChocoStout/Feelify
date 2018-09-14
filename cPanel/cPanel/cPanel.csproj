@@ -82,6 +82,12 @@
     <Compile Include="F_Login.Designer.cs">
       <DependentUpon>F_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_TiposUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_TiposUsuarios.Designer.cs">
+      <DependentUpon>F_TiposUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Generos.cs">
       <DependentUpon>ModeloFeelify.tt</DependentUpon>
     </Compile>
@@ -129,6 +135,7 @@
     <Compile Include="TiposUsuarios.cs">
       <DependentUpon>ModeloFeelify.tt</DependentUpon>
     </Compile>
+    <Compile Include="UsuarioActivo.cs" />
     <Compile Include="Usuarios.cs">
       <DependentUpon>ModeloFeelify.tt</DependentUpon>
     </Compile>
@@ -143,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F_Login.resx">
       <DependentUpon>F_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_TiposUsuarios.resx">
+      <DependentUpon>F_TiposUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

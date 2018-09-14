@@ -14,3 +14,4 @@ C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.cs
 C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.exe
 C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.pdb
 C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.F_HomeScreen.resources
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.F_TiposUsuarios.resources

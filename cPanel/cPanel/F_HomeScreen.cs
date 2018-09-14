@@ -19,13 +19,25 @@ namespace cPanel
 
         private void F_HomeScreen_Load(object sender, EventArgs e)
         {
-            timer1.Start();
+            timer_Home.Start();
+            if((UsuarioActivo.data.idTipoUsuario) != 1)
+            {
+                tsmi_Admin.Visible = false;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Interval = 1000;
-            this.label1.Text = DateTime.Now.ToString();
+            timer_Home.Interval = 1000;
+            this.lbl_Hora.Text = DateTime.Now.ToString();
+        }
+
+        private void tsmi_TipoUsuarios_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var x = new F_TiposUsuarios();
+            x.Closed += (s, args) => this.Close();
+            x.Show();
         }
     }
 }

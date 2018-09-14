@@ -12,6 +12,8 @@ namespace cPanel
 {
     public partial class F_Login : Form
     {
+        Usuarios usr = new Usuarios();
+
         public F_Login()
         {
             InitializeComponent();
@@ -31,11 +33,13 @@ namespace cPanel
                 {
                     var resultado = conn.loginUsuario(username, password);
                     if (resultado.ToArray<loginUsuario_Result>().Count() == 1)
+                    {
+                        usr = (conn.Usuarios.Where(x => username == x.Username).FirstOrDefault());
                         loginScreen(true);
+                    }
                     else
                         loginScreen(false);
                 }
-                
             }
             catch (Exception ex)
             {
@@ -47,6 +51,8 @@ namespace cPanel
         {
             if (resultado)
             {
+                UsuarioActivo.data = usr;
+                MessageBox.Show("Bienvenido " + UsuarioActivo.data.Nombre);
                 this.Hide();
                 var x = new F_HomeScreen();
                 x.Closed += (s, args) => this.Close();
