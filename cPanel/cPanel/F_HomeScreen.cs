@@ -39,5 +39,34 @@ namespace cPanel
             x.Closed += (s, args) => this.Close();
             x.Show();
         }
+
+        private void tsmi_Paises_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var x = new F_Paises();
+            x.Closed += (s, args) => this.Close();
+            x.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void estadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var x = new F_Estados();
+            x.Closed += (s, args) => this.Close();
+            x.Show();
+        }
+
+        private void tsmi_Usuarios_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var x = new F_Usuarios();
+            x.Closed += (s, args) => this.Close();
+            x.Show();
+        }
     }
 }

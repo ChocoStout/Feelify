@@ -682,9 +682,7 @@ advertencia 6002: La tabla o vista 'Feelify.dbo.UsuariosSentimientos' no tiene d
           </Key>
           <Property Name="idEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Playlists" Relationship="Self.FK_Playlists_Estados" FromRole="Estados" ToRole="Playlists" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Estados" FromRole="Estados" ToRole="Usuarios" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="Generos">
           <Key>
             <PropertyRef Name="idGenero" />
@@ -702,10 +700,7 @@ advertencia 6002: La tabla o vista 'Feelify.dbo.UsuariosSentimientos' no tiene d
           </Key>
           <Property Name="idPais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Artistas" Relationship="Self.FK_Artistas_Paises" FromRole="Paises" ToRole="Artistas" />
-          <NavigationProperty Name="Generos" Relationship="Self.FK_Generos_Paises" FromRole="Paises" ToRole="Generos" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Paises" FromRole="Paises" ToRole="Usuarios" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="Playlists">
           <Key>
             <PropertyRef Name="idPlaylist" />
@@ -746,7 +741,6 @@ advertencia 6002: La tabla o vista 'Feelify.dbo.UsuariosSentimientos' no tiene d
           </Key>
           <Property Name="idTipoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_TiposUsuarios" FromRole="TiposUsuarios" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -764,13 +758,7 @@ advertencia 6002: La tabla o vista 'Feelify.dbo.UsuariosSentimientos' no tiene d
           <Property Name="idTipoUsuario" Type="Int32" Nullable="false" />
           <Property Name="idEstado" Type="Int32" Nullable="false" />
           <Property Name="Imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Estados" Relationship="Self.FK_Usuarios_Estados" FromRole="Usuarios" ToRole="Estados" />
-          <NavigationProperty Name="Paises" Relationship="Self.FK_Usuarios_Paises" FromRole="Usuarios" ToRole="Paises" />
-          <NavigationProperty Name="Playlists" Relationship="Self.FK_Playlists_Usuarios" FromRole="Usuarios" ToRole="Playlists" />
-          <NavigationProperty Name="TiposUsuarios" Relationship="Self.FK_Usuarios_TiposUsuarios" FromRole="Usuarios" ToRole="TiposUsuarios" />
-          <NavigationProperty Name="UsuariosActividades" Relationship="Self.FK_UsuariosActividades_Usuarios" FromRole="Usuarios" ToRole="UsuariosActividades" />
-          <NavigationProperty Name="UsuariosSentimientos" Relationship="Self.FK_UsuariosSentimientos_Usuarios" FromRole="Usuarios" ToRole="UsuariosSentimientos" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="PlaylistsCanciones">
           <Key>
             <PropertyRef Name="idPlaylist" />
@@ -844,7 +832,7 @@ advertencia 6002: La tabla o vista 'Feelify.dbo.UsuariosSentimientos' no tiene d
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Artistas_Paises">
-          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+          <End Role="Paises" Type="FeelifyModel.Paises" Multiplicity="1" />
           <End Role="Artistas" Type="Self.Artistas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Paises">
@@ -892,7 +880,7 @@ advertencia 6002: La tabla o vista 'Feelify.dbo.UsuariosSentimientos' no tiene d
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Generos_Paises">
-          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+          <End Role="Paises" Type="FeelifyModel.Paises" Multiplicity="1" />
           <End Role="Generos" Type="Self.Generos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Paises">
@@ -904,7 +892,7 @@ advertencia 6002: La tabla o vista 'Feelify.dbo.UsuariosSentimientos' no tiene d
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Usuarios_Paises">
-          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+          <End Role="Paises" Type="FeelifyModel.Paises" Multiplicity="1" />
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Paises">
@@ -1002,7 +990,7 @@ advertencia 6002: La tabla o vista 'Feelify.dbo.UsuariosSentimientos' no tiene d
           <EntitySet Name="Canciones" EntityType="Self.Canciones" />
           <EntitySet Name="Estados" EntityType="Self.Estados" />
           <EntitySet Name="Generos" EntityType="Self.Generos" />
-          <EntitySet Name="Paises" EntityType="Self.Paises" />
+          <EntitySet Name="Paises" EntityType="FeelifyModel.Paises" />
           <EntitySet Name="Playlists" EntityType="Self.Playlists" />
           <EntitySet Name="Sentimientos" EntityType="Self.Sentimientos" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />

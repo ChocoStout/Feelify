@@ -15,3 +15,6 @@ C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.ex
 C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.pdb
 C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.F_HomeScreen.resources
 C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.F_TiposUsuarios.resources
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.F_Paises.resources
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.F_Estados.resources
+C:\Users\Pedro Emilio Pérez\Documents\Feelify\cPanel\cPanel\obj\Debug\cPanel.F_Usuarios.resources

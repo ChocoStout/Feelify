@@ -38,6 +38,7 @@
             this.btn_Salir = new System.Windows.Forms.Button();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.txt_ID = new System.Windows.Forms.TextBox();
+            this.lbl_username = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Tipos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,13 +48,14 @@
             this.dgv_Tipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Tipos.Location = new System.Drawing.Point(12, 118);
             this.dgv_Tipos.Name = "dgv_Tipos";
-            this.dgv_Tipos.Size = new System.Drawing.Size(253, 161);
+            this.dgv_Tipos.Size = new System.Drawing.Size(426, 145);
             this.dgv_Tipos.TabIndex = 0;
+            this.dgv_Tipos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Tipos_CellClick);
             // 
             // lbl_idTipo
             // 
             this.lbl_idTipo.AutoSize = true;
-            this.lbl_idTipo.Location = new System.Drawing.Point(12, 12);
+            this.lbl_idTipo.Location = new System.Drawing.Point(12, 51);
             this.lbl_idTipo.Name = "lbl_idTipo";
             this.lbl_idTipo.Size = new System.Drawing.Size(18, 13);
             this.lbl_idTipo.TabIndex = 1;
@@ -62,7 +64,7 @@
             // lbl_nombreTipo
             // 
             this.lbl_nombreTipo.AutoSize = true;
-            this.lbl_nombreTipo.Location = new System.Drawing.Point(12, 37);
+            this.lbl_nombreTipo.Location = new System.Drawing.Point(12, 75);
             this.lbl_nombreTipo.Name = "lbl_nombreTipo";
             this.lbl_nombreTipo.Size = new System.Drawing.Size(44, 13);
             this.lbl_nombreTipo.TabIndex = 2;
@@ -70,7 +72,7 @@
             // 
             // btn_Agregar
             // 
-            this.btn_Agregar.Location = new System.Drawing.Point(12, 60);
+            this.btn_Agregar.Location = new System.Drawing.Point(338, 41);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(75, 23);
             this.btn_Agregar.TabIndex = 3;
@@ -80,43 +82,47 @@
             // 
             // btn_Editar
             // 
-            this.btn_Editar.Location = new System.Drawing.Point(93, 60);
+            this.btn_Editar.Location = new System.Drawing.Point(257, 70);
             this.btn_Editar.Name = "btn_Editar";
             this.btn_Editar.Size = new System.Drawing.Size(75, 23);
             this.btn_Editar.TabIndex = 4;
             this.btn_Editar.Text = "Editar";
             this.btn_Editar.UseVisualStyleBackColor = true;
+            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
             // 
             // btn_Eliminar
             // 
-            this.btn_Eliminar.Location = new System.Drawing.Point(176, 60);
+            this.btn_Eliminar.Location = new System.Drawing.Point(257, 12);
             this.btn_Eliminar.Name = "btn_Eliminar";
             this.btn_Eliminar.Size = new System.Drawing.Size(75, 23);
             this.btn_Eliminar.TabIndex = 5;
-            this.btn_Eliminar.Text = "Salir";
+            this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.UseVisualStyleBackColor = true;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(46, 89);
+            this.btn_Cancelar.Location = new System.Drawing.Point(338, 12);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancelar.TabIndex = 6;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Salir
             // 
-            this.btn_Salir.Location = new System.Drawing.Point(127, 89);
+            this.btn_Salir.Location = new System.Drawing.Point(257, 41);
             this.btn_Salir.Name = "btn_Salir";
             this.btn_Salir.Size = new System.Drawing.Size(75, 23);
             this.btn_Salir.TabIndex = 7;
-            this.btn_Salir.Text = "Volver";
+            this.btn_Salir.Text = "Salir";
             this.btn_Salir.UseVisualStyleBackColor = true;
+            this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
             // 
             // txt_Nombre
             // 
-            this.txt_Nombre.Location = new System.Drawing.Point(62, 34);
+            this.txt_Nombre.Location = new System.Drawing.Point(62, 70);
             this.txt_Nombre.MaxLength = 11;
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(189, 20);
@@ -124,18 +130,28 @@
             // 
             // txt_ID
             // 
-            this.txt_ID.Location = new System.Drawing.Point(36, 12);
+            this.txt_ID.Location = new System.Drawing.Point(36, 48);
             this.txt_ID.Name = "txt_ID";
             this.txt_ID.ReadOnly = true;
             this.txt_ID.Size = new System.Drawing.Size(215, 20);
             this.txt_ID.TabIndex = 9;
             // 
+            // lbl_username
+            // 
+            this.lbl_username.AutoSize = true;
+            this.lbl_username.Location = new System.Drawing.Point(12, 21);
+            this.lbl_username.Name = "lbl_username";
+            this.lbl_username.Size = new System.Drawing.Size(35, 13);
+            this.lbl_username.TabIndex = 10;
+            this.lbl_username.Text = "label1";
+            // 
             // F_TiposUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 291);
+            this.ClientSize = new System.Drawing.Size(450, 291);
             this.ControlBox = false;
+            this.Controls.Add(this.lbl_username);
             this.Controls.Add(this.txt_ID);
             this.Controls.Add(this.txt_Nombre);
             this.Controls.Add(this.btn_Salir);
@@ -168,5 +184,6 @@
         private System.Windows.Forms.Button btn_Salir;
         private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.TextBox txt_ID;
+        private System.Windows.Forms.Label lbl_username;
     }
 }

@@ -24,5 +24,5 @@ Dia 3 --12/09/2018[
     Se reacomodaron las carpetas.
     Se reorganizo el modelo ER.
     Se incorporaron scripts de MSSQL para mejor funcionalidad con Entity 6.
-    Se creo la forma del login en C# de manera basica.
+    
 ]

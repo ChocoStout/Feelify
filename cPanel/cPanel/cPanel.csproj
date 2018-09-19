@@ -70,6 +70,12 @@
     <Compile Include="Estados.cs">
       <DependentUpon>ModeloFeelify.tt</DependentUpon>
     </Compile>
+    <Compile Include="F_Estados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_Estados.Designer.cs">
+      <DependentUpon>F_Estados.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,11 +88,23 @@
     <Compile Include="F_Login.Designer.cs">
       <DependentUpon>F_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_Paises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_Paises.Designer.cs">
+      <DependentUpon>F_Paises.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_TiposUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F_TiposUsuarios.Designer.cs">
       <DependentUpon>F_TiposUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_Usuarios.Designer.cs">
+      <DependentUpon>F_Usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Generos.cs">
       <DependentUpon>ModeloFeelify.tt</DependentUpon>
@@ -145,14 +163,23 @@
     <Compile Include="UsuariosSentimientos.cs">
       <DependentUpon>ModeloFeelify.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="F_Estados.resx">
+      <DependentUpon>F_Estados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_HomeScreen.resx">
       <DependentUpon>F_HomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Login.resx">
       <DependentUpon>F_Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_Paises.resx">
+      <DependentUpon>F_Paises.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_TiposUsuarios.resx">
       <DependentUpon>F_TiposUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_Usuarios.resx">
+      <DependentUpon>F_Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

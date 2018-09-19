@@ -36,9 +36,9 @@
             this.tsmi_Playlists = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Admin = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_TipoUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.paisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Paises = new System.Windows.Forms.ToolStripMenuItem();
             this.estadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Usuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.tuCuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_Home.SuspendLayout();
@@ -89,9 +89,9 @@
             // 
             this.tsmi_Admin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_TipoUsuarios,
-            this.paisesToolStripMenuItem,
+            this.tsmi_Paises,
             this.estadosToolStripMenuItem,
-            this.usuariosToolStripMenuItem1});
+            this.tsmi_Usuarios});
             this.tsmi_Admin.Name = "tsmi_Admin";
             this.tsmi_Admin.Size = new System.Drawing.Size(55, 20);
             this.tsmi_Admin.Text = "Admin";
@@ -103,23 +103,26 @@
             this.tsmi_TipoUsuarios.Text = "Tipo de usuarios";
             this.tsmi_TipoUsuarios.Click += new System.EventHandler(this.tsmi_TipoUsuarios_Click);
             // 
-            // paisesToolStripMenuItem
+            // tsmi_Paises
             // 
-            this.paisesToolStripMenuItem.Name = "paisesToolStripMenuItem";
-            this.paisesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.paisesToolStripMenuItem.Text = "Paises";
+            this.tsmi_Paises.Name = "tsmi_Paises";
+            this.tsmi_Paises.Size = new System.Drawing.Size(180, 22);
+            this.tsmi_Paises.Text = "Paises";
+            this.tsmi_Paises.Click += new System.EventHandler(this.tsmi_Paises_Click);
             // 
             // estadosToolStripMenuItem
             // 
             this.estadosToolStripMenuItem.Name = "estadosToolStripMenuItem";
             this.estadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.estadosToolStripMenuItem.Text = "Estados";
+            this.estadosToolStripMenuItem.Click += new System.EventHandler(this.estadosToolStripMenuItem_Click);
             // 
-            // usuariosToolStripMenuItem1
+            // tsmi_Usuarios
             // 
-            this.usuariosToolStripMenuItem1.Name = "usuariosToolStripMenuItem1";
-            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.usuariosToolStripMenuItem1.Text = "Usuarios";
+            this.tsmi_Usuarios.Name = "tsmi_Usuarios";
+            this.tsmi_Usuarios.Size = new System.Drawing.Size(180, 22);
+            this.tsmi_Usuarios.Text = "Usuarios";
+            this.tsmi_Usuarios.Click += new System.EventHandler(this.tsmi_Usuarios_Click);
             // 
             // tuCuentaToolStripMenuItem
             // 
@@ -132,6 +135,7 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // F_HomeScreen
             // 
@@ -162,9 +166,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_Playlists;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Admin;
         private System.Windows.Forms.ToolStripMenuItem tsmi_TipoUsuarios;
-        private System.Windows.Forms.ToolStripMenuItem paisesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Paises;
         private System.Windows.Forms.ToolStripMenuItem estadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Usuarios;
         private System.Windows.Forms.ToolStripMenuItem tuCuentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }

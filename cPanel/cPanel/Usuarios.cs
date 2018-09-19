@@ -14,14 +14,6 @@ namespace cPanel
     
     public partial class Usuarios
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuarios()
-        {
-            this.Playlists = new HashSet<Playlists>();
-            this.UsuariosActividades = new HashSet<UsuariosActividades>();
-            this.UsuariosSentimientos = new HashSet<UsuariosSentimientos>();
-        }
-    
         public int idUsuario { get; set; }
         public string Nombre { get; set; }
         public string A_Paterno { get; set; }
@@ -34,15 +26,5 @@ namespace cPanel
         public int idTipoUsuario { get; set; }
         public int idEstado { get; set; }
         public string Imagen { get; set; }
-    
-        public virtual Estados Estados { get; set; }
-        public virtual Paises Paises { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Playlists> Playlists { get; set; }
-        public virtual TiposUsuarios TiposUsuarios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UsuariosActividades> UsuariosActividades { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UsuariosSentimientos> UsuariosSentimientos { get; set; }
     }
 }
