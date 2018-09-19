@@ -1,0 +1,14 @@
+{
+  "name": "cliente-electron",
+  "version": "1.0.0",
+  "description": "Proyecto personal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pedro Emilio Perez Franco",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^3.0.0"
+  }
+}
